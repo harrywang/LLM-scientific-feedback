@@ -1,3 +1,35 @@
+# My Installation Note
+
+I have made the following changes to the code base:
+
+- change to gpt-4-1106-preview API
+- `openai==0.28`to avoid this: https://github.com/Weixin-Liang/LLM-scientific-feedback/issues/25
+- added `demo.launch(server_name="0.0.0.0", server_port=7799, share='True')` to `main.py` to get a public URL
+- change `demo.queue(concurrency_count=3)` to `demo.queue()` to remove a deprecation error
+- create a `key.txt` and put your API key as the only line in the file, such as `sk-xxx`
+
+System Used: Ubuntu 20.04.6 LTS
+
+```
+conda env create -f conda_environment.yml
+conda activate ScienceBeam
+python -m sciencebeam_parser.service.server --port=8080  # Make sure this is running in the background
+```
+
+Then,
+
+```
+conda create -n llm python=3.10
+conda activate llm
+pip install -r requirements.txt
+python main.py
+```
+
+Go to something like https://5a1xxxx.gradio.live/ and upload a PDF paper:
+
+<img width="1596" alt="Screenshot 2023-11-24 at 5 22 04 PM" src="https://github.com/Weixin-Liang/LLM-scientific-feedback/assets/595772/c90a5943-fc8c-4246-99ea-65a47e4a4785">
+
+
 # Can large language models provide useful feedback on research papers? A large-scale empirical analysis.
 
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
