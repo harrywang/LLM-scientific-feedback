@@ -4,7 +4,7 @@ import gradio as gr
 
 from main import GPT4Wrapper, step3_get_lm_review
 
-wrapper = GPT4Wrapper(model_name="gpt-4")
+wrapper = GPT4Wrapper(model_name="gpt-4-1106-preview")
 
 
 def process(title, abstract, figure_and_table_captions, main_content):
