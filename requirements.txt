@@ -1,4 +1,4 @@
 gradio
 pikepdf
-openai
+openai==0.28
 tiktoken
