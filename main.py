@@ -12,7 +12,7 @@ import tiktoken
 
 
 class GPT4Wrapper:
-    def __init__(self, model_name="gpt-3.5-turbo"):
+    def __init__(self, model_name="gpt-4-1106-preview"):
         self.model_name = model_name
         self.tokenizer = tiktoken.encoding_for_model(self.model_name)
         openai.api_key = open("key.txt").read().strip()
@@ -42,7 +42,7 @@ class GPT4Wrapper:
         return result
 
 
-wrapper = GPT4Wrapper(model_name="gpt-4")
+wrapper = GPT4Wrapper(model_name="gpt-4-1106-preview")
 
 
 def extract_element_text(element):
@@ -324,7 +324,7 @@ def main():
         fn=process, inputs=upload_component, outputs=output_component_review
     )
     demo.queue(concurrency_count=3)
-    demo.launch(server_name="0.0.0.0", server_port=7799)
+    demo.launch(server_name="0.0.0.0", server_port=7799, share=TRUE)
 
 
 if __name__ == "__main__":
