@@ -324,7 +324,7 @@ def main():
         fn=process, inputs=upload_component, outputs=output_component_review
     )
     demo.queue()
-    demo.launch(server_name="0.0.0.0", server_port=7799, share=TRUE)
+    demo.launch(server_name="0.0.0.0", server_port=7799, share='True')
 
 
 if __name__ == "__main__":
